@@ -4,7 +4,7 @@ class CreateTips < ActiveRecord::Migration
       t.string :name
       t.string :activity_type
       t.text :description
-      t.user :references
+      t.references :user
 
       t.timestamps
     end
