@@ -2,5 +2,5 @@
 <p><%= comment.comment_text %></p>
 
 <% if session[:comment_ids].include?(comment.id.to_s) %>
-edit...  destroy
+  <p><%= link_to 'Edit', edit_comment_path(comment) %> <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?'} %></p>
 <% end %>

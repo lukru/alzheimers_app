@@ -76,7 +76,7 @@ class TipsController < ApplicationController
     def set_tip
       @tip = @user.tips.find_by_id(params[:id])
       if @tip.blank?
-        redirect_to tips_path, :alert => "oops, that didn't exist. please choose another."
+        redirect_to tips_path, :alert => "Sorry, you aren't authorized to edit that tip. Choose one of your own!"
       end
     end
 

@@ -12,6 +12,8 @@ class CommentsController < ApplicationController
   # GET /comments/1
   # GET /comments/1.json
   def show
+    @comment = Comment.find_by_id(params[:id])
+    @comment = @tip.comment
   end
 
   # GET /comments/new
@@ -60,7 +62,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url }
+      format.html { redirect_to comments }
       format.json { head :no_content }
     end
   end
@@ -68,7 +70,10 @@ class CommentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
-      @comment = Comment.find(params[:id])
+      @comment = @tip.comment.find_by_id(params[:id])
+      if @comment.blank?
+        redirect_to comments_path, :alert => "oops. that comment doesn't exist. please try another."
+      end
     end
 
     def set_tip
