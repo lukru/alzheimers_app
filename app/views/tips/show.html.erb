@@ -15,10 +15,14 @@
   <%= @tip.description %>
 </p>
 
-<p>
-  <strong>References:</strong>
-  <%= @tip.references %>
-</p>
-
 <%= link_to 'Edit', edit_tip_path(@tip) %> |
 <%= link_to 'Back', tips_path %>
+<p style="color:red"><em>*can only edit tip if you're logged in as that specific user</em></p>
+
+<hr>
+
+<%= render @comments if @comments.present? %>
+<h2>add comment:</h2>
+<%= render 'comments/form' %>
+
+<p>add vote for this tip here</p>

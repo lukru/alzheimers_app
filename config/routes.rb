@@ -1,10 +1,16 @@
 AlzheimersApp::Application.routes.draw do
-  resources :users
+  root to: "pages#welcome"
 
-  resources :tips do
-    resources :comments
-    resources :votes
+  resources :users do
+    resources :tips, :shallow => true do
+      resources :comments
+      resources :votes
+    end
   end
+
+  resources :tips, only: [:index]
+
+  get "/:action", to: "pages#:action"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

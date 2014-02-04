@@ -1,10 +1,11 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_tip
 
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.all
+    @comments = @tip.comments.all
   end
 
   # GET /comments/1
@@ -14,7 +15,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-    @comment = Comment.new
+    @comment = @tip.comments.new
   end
 
   # GET /comments/1/edit
@@ -24,11 +25,11 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(comment_params)
+    @comment = @tip.comments.new(comment_params)
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @tip, notice: 'Comment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @comment }
       else
         format.html { render action: 'new' }
@@ -65,6 +66,14 @@ class CommentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
       @comment = Comment.find(params[:id])
+    end
+
+    def set_tip
+      if params[:tip_id]
+        @tip = Tip.find(params[:tip_id])
+      else
+        @tip = @comment.tip if @comment.present?
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

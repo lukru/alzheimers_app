@@ -1,20 +1,27 @@
 class TipsController < ApplicationController
   before_action :set_tip, only: [:show, :edit, :update, :destroy]
+  before_action :set_user
 
   # GET /tips
   # GET /tips.json
   def index
-    @tips = Tip.all
+    if @user.present?
+      @tips = @user.tips
+    else
+      @tips = Tip.all
+    end
   end
 
   # GET /tips/1
   # GET /tips/1.json
   def show
+    @comments = @tip.comments
+    @comment = @tip.comments.new
   end
 
   # GET /tips/new
   def new
-    @tip = Tip.new
+    @tip = @user.tips.new
   end
 
   # GET /tips/1/edit
@@ -67,8 +74,16 @@ class TipsController < ApplicationController
       @tip = Tip.find(params[:id])
     end
 
+    def set_user
+      if params[:user_id].present?
+        @user = User.find_by_id(params[:user_id])
+      else
+        @user = @user.tip if @user.present?
+      end
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def tip_params
-      params.require(:tip).permit(:name, :activity_type, :description, :references)
+      params.require(:tip).permit(:name, :activity_type, :description, :references, :user_id)
     end
 end

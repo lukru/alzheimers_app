@@ -11,14 +11,9 @@
 </p>
 
 <p>
-  <strong>References:</strong>
-  <%= @comment.references %>
-</p>
-
-<p>
-  <strong>References:</strong>
-  <%= @comment.references %>
+  <strong>User:</strong>
+  <%= @comment.user.name if @comment.user %>
 </p>
 
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+<%= link_to 'Back', tip_comments_path(@tip) %>
