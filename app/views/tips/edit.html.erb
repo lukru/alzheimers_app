@@ -1,6 +1,8 @@
 <h1>Editing tip</h1>
+<%= form_for(@tip) do |f| %>
 
-<%= render 'form' %>
+<%= render 'form', f: f %>
+<% end %>
 
 <%= link_to 'Show', @tip %> |
 <%= link_to 'Back', tips_path %>

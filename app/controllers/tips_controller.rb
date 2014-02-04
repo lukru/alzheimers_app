@@ -1,11 +1,12 @@
 class TipsController < ApplicationController
-  before_action :set_tip, only: [:show, :edit, :update, :destroy]
-  before_action :set_user
+  before_action :set_user, except: [:show]
+  before_action :set_tip, only: [:edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index]
 
   # GET /tips
   # GET /tips.json
   def index
-    if @user.present?
+    if @user.present? && params[:just_me]
       @tips = @user.tips
     else
       @tips = Tip.all
@@ -15,6 +16,8 @@ class TipsController < ApplicationController
   # GET /tips/1
   # GET /tips/1.json
   def show
+    @tip = Tip.find_by_id(params[:id])
+    @user = @tip.user
     @comments = @tip.comments
     @comment = @tip.comments.new
   end
@@ -31,7 +34,7 @@ class TipsController < ApplicationController
   # POST /tips
   # POST /tips.json
   def create
-    @tip = Tip.new(tip_params)
+    @tip = @user.tips.new(tip_params)
 
     respond_to do |format|
       if @tip.save
@@ -71,15 +74,14 @@ class TipsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tip
-      @tip = Tip.find(params[:id])
+      @tip = @user.tips.find_by_id(params[:id])
+      if @tip.blank?
+        redirect_to tips_path, :alert => "oops, that didn't exist. please choose another."
+      end
     end
 
     def set_user
-      if params[:user_id].present?
-        @user = User.find_by_id(params[:user_id])
-      else
-        @user = @user.tip if @user.present?
-      end
+      @user = current_user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

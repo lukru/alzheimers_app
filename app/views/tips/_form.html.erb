@@ -1,4 +1,3 @@
-<%= form_for([@user, @tip]) do |f| %>
   <% if @tip.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@tip.errors.count, "error") %> prohibited this tip from being saved:</h2>
@@ -31,4 +30,3 @@
   <div class="actions">
     <%= f.submit %>
   </div>
-<% end %>

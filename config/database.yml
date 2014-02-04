@@ -47,8 +47,7 @@ test:
   encoding: unicode
   database: alzheimers_app_test
   pool: 5
-  username: alzheimers_app
-  password:
+
 
 production:
   adapter: postgresql
