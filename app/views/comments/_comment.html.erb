@@ -1,2 +1,6 @@
 <p><strong><%= comment.author_name %></strong></p>
 <p><%= comment.comment_text %></p>
+
+<% if session[:comment_ids].include?(comment.id.to_s) %>
+edit...  destroy
+<% end %>

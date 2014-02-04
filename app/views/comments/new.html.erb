@@ -1,5 +1,7 @@
 <h1>New comment</h1>
 
-<%= render 'form' %>
+<%= form_for([@tip, @comment]) do |f| %>
+  <%= render 'form', f: f %>
+<% end %>
 
 <%= link_to 'Back', tip_comments_path(@tip) %>

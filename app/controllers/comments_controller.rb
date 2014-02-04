@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_action :set_tip
+  before_filter :verify_ownership, only: [:edit, :destroy, :update]
 
   # GET /comments
   # GET /comments.json
@@ -15,11 +16,12 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-    @comment = @tip.comments.new
+    @comment = @tip.comments.build
   end
 
   # GET /comments/1/edit
   def edit
+
   end
 
   # POST /comments
@@ -29,6 +31,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+        session[:comment_ids] << @comment.id.to_s
         format.html { redirect_to @tip, notice: 'Comment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @comment }
       else
@@ -80,4 +83,12 @@ class CommentsController < ApplicationController
     def comment_params
       params.require(:comment).permit(:author_name, :comment_text, :references, :references)
     end
+
+    def verify_ownership
+      unless session[:comment_ids].include?(params[:id])
+        flash[:alert] = "You don't have permission to edit that comment"
+        redirect_to root_path
+      end
+    end
+
 end

@@ -1,6 +1,5 @@
 AlzheimersApp::Application.routes.draw do
   devise_for :users
-  root to: "pages#welcome"
 
   resources :users do
     resources :tips, :shallow => true do
@@ -12,6 +11,8 @@ AlzheimersApp::Application.routes.draw do
   resources :tips, only: [:index]
 
   get "/:action", to: "pages#:action"
+
+  root to: "pages#welcome"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

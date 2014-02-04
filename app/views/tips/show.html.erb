@@ -23,6 +23,8 @@
 
 <%= render @comments if @comments.present? %>
 <h2>add comment:</h2>
-<%= render 'comments/form' %>
+<%= form_for([@tip, @comment]) do |f| %>
+  <%= render 'comments/form', f: f %>
+<% end %>
 
 <p>add vote for this tip here</p>

@@ -4,8 +4,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :authenticate_user!
-
+  before_action :set_up_comment_ids_array
   before_filter :configure_permitted_parameters, if: :devise_controller?
+
+  private
+
+  def set_up_comment_ids_array
+    session[:comment_ids] = [] if session[:comment_ids].nil?
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :location, :user_type, :password, :password_confirmation, :current_password) }
