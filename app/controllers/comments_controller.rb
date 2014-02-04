@@ -12,7 +12,6 @@ class CommentsController < ApplicationController
   # GET /comments/1
   # GET /comments/1.json
   def show
-    @comment = Comment.find_by_id(params[:id])
     @comment = @tip.comment
   end
 
@@ -30,10 +29,10 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = @tip.comments.new(comment_params)
+    @comment.user = current_user
 
     respond_to do |format|
       if @comment.save
-        session[:comment_ids] << @comment.id.to_s
         format.html { redirect_to @tip, notice: 'Comment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @comment }
       else
@@ -70,9 +69,9 @@ class CommentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
-      @comment = @tip.comment.find_by_id(params[:id])
+      @comment = Comment.find_by_id(params[:id])
       if @comment.blank?
-        redirect_to comments_path, :alert => "oops. that comment doesn't exist. please try another."
+        redirect_to tips_path, :alert => "oops. that comment doesn't exist. please try another."
       end
     end
 
@@ -90,9 +89,9 @@ class CommentsController < ApplicationController
     end
 
     def verify_ownership
-      unless session[:comment_ids].include?(params[:id])
+      if @comment.user != current_user 
         flash[:alert] = "You don't have permission to edit that comment"
-        redirect_to root_path
+        redirect_to tip_path(@comment.tip)
       end
     end
 
