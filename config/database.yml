@@ -55,4 +55,4 @@ production:
   database: alzheimers_app_production
   pool: 5
   username: alzheimers_app
-  password: forgetmeknot
+  password: chuck

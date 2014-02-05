@@ -18,9 +18,6 @@ gem 'coffee-rails', '~> 4.0.0'
 # For Authentication
 gem 'devise'
 
-# For Gravatar user profile photos
-gem 'gravtastic'
-
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -36,6 +33,11 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :production do
+  # for heroku
+  gem 'rails_12factor'
 end
 
 # Use ActiveModel has_secure_password
