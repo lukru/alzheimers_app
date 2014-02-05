@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-    @comment = @tip.comments.build
+    @comment = @tip.comments.new
   end
 
   # GET /comments/1/edit

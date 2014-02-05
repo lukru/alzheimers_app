@@ -28,4 +28,17 @@
   <%= render 'comments/form', f: f %>
 <% end %>
 
-<p>add vote for this tip here</p>
+<hr>
+
+<% if user_signed_in? %>
+
+  <% vote = current_user.votes.new(:tip_id => @tip.id) %>
+
+  <%= form_for([@tip, vote]) do |f| %>
+
+    <div class="actions">
+      <%= f.submit 'favorite' %>
+    </div>
+
+  <% end %>  
+<% end %>
