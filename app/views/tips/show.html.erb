@@ -17,7 +17,8 @@
   <%= @tip.description %>
 </p>
 
-<%= link_to 'Edit', edit_tip_path(@tip) %> |
+<%= link_to 'Edit', edit_tip_path(@tip) %><br>
+<%= link_to 'Destroy', @tip, method: :delete, data: { confirm: 'Are you sure?' } if @tip.user == current_user %>
 <%= link_to 'Back', tips_path %>
 
 <hr>

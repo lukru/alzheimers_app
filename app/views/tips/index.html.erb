@@ -15,7 +15,7 @@
   <tbody>
     <% @tips.each do |tip| %>
       <tr>
-        <td><%= tip.name %></td>
+        <td><%= link_to tip.name, tip %></td>
         <td><%= tip.activity_type %></td>
         <td><%= tip.description %></td>
         <td><%= tip.votes.count %></td>

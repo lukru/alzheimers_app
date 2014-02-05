@@ -18,6 +18,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # For Authentication
 gem 'devise'
 
+# For Gravatar user profile photos
+gem 'gravtastic'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

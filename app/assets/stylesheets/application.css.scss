@@ -12,14 +12,18 @@
  *= require_tree .
  */
 
-/*h1 {
-  color: red;
+body {
+  background-image: image-url("stardust.png");
+  background-repeat: repeat;
 }
 
-#container {
-  background-color: yellow;
-}
-
-#container p {
-  color: blue;
+/*#container {
+  background-color: #FFFFFF;
+  width: 800px;
+  margin: 0 auto;
+  min-height: 100%;
 }*/
+
+h1 {
+  color: blue;
+}

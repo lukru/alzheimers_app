@@ -6,11 +6,12 @@ class TipsController < ApplicationController
   # GET /tips
   # GET /tips.json
   def index
-    if @user.present? && params[:just_me]
-      @tips = @user.tips
-    else
-      @tips = Tip.all
+    @tips = Tip.by_votes
+    if @user.present? && params[:all].blank?
+      @tips = @tips.where(:user_id => @user.id)
     end
+    
+
   end
 
   # GET /tips/1
