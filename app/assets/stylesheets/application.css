@@ -11,3 +11,15 @@
  *= require_self
  *= require_tree .
  */
+
+/*h1 {
+  color: red;
+}
+
+#container {
+  background-color: yellow;
+}
+
+#container p {
+  color: blue;
+}*/

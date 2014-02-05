@@ -6,7 +6,7 @@
       <th>Name</th>
       <th>Activity type</th>
       <th>Description</th>
-      <th></th>
+      <th>Votes</th>
       <th></th>
       <th></th>
     </tr>
@@ -18,10 +18,10 @@
         <td><%= tip.name %></td>
         <td><%= tip.activity_type %></td>
         <td><%= tip.description %></td>
+        <td><%= tip.votes.count %></td>
         <td><%= link_to 'Show', tip %></td>
         <td><%= link_to 'Edit', edit_tip_path(tip) if tip.user == current_user %></td>
         <td><%= link_to 'Destroy', tip, method: :delete, data: { confirm: 'Are you sure?' } if tip.user == current_user %></td>
-        <td><%#= link_to 'vote' %></td>
       </tr>
     <% end %>
   </tbody>

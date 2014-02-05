@@ -30,7 +30,9 @@
 
 <hr>
 
-<% if user_signed_in? %>
+<p style="color:blue;"><%= @tip.votes.count %> favorites</p>
+
+<% if user_signed_in? && @user != current_user  %>
 
   <% vote = current_user.votes.new(:tip_id => @tip.id) %>
 
