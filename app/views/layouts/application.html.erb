@@ -13,8 +13,8 @@
 <body>
 
 <header>
-    <div class="logged-in">
     <% if user_signed_in? %>
+    <div class="logged-in">
       Hello, <%= link_to current_user do %>
         <strong><%= current_user.name %></strong>.
       <% end %>&nbsp;&nbsp;<span class="divider">|</span>
