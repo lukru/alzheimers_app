@@ -4,7 +4,12 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    sort = params[:sort]
+    case sort
+    when "name"
+      sort = "lower(name)"
+    end
+    @users = User.order(sort).all
   end
 
   # GET /users/1
