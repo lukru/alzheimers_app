@@ -9,21 +9,157 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require scaffolds
+ *= require pages
  */
 
+@import 'bootstrap';
+
 body {
-  background-image: image-url("stardust.png");
+  background-image: image-url("graphy.png");
   background-repeat: repeat;
+  margin: -25px 0px 0px 0px;
+  padding: 0;
 }
 
-/*#container {
+header {
+  font-family: 'Arvo', serif;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  margin-top: 45px;
+}
+
+#topnav ul,
+#topnav li,
+#topnav span,
+#topnav a{
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+#topnav {
+  height: 40px;
+  background: #FFFFFF;
+  width: 850px;
+  margin: 0px auto;
+  position: relative;
+}
+#topnav:after,
+#topnav ul:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+#topnav a {
+  color: #3d3c3e;
+  display: inline-block;
+  font-size: 18px;
+  line-height: 32px;
+  padding: 5px 25px;
+  text-decoration: none;
+}
+#topnav ul {
+  list-style: none;
+}
+#topnav li {
+  float: left;
+}
+#nav-left li:first-child {
+}
+#nav-left li:last-child {
+  margin-left: 45px;
+}
+#nav-right li:first-child {
+  margin-right: 45px;
+}
+#topnav > ul > li > a {
+  color: #3d3c3e;
+}
+#topnav li a:hover {
+  color: #29bbae;
+}
+#topnav li a:active {
+  color: #3d3c3e;
+}
+#topnav li a:visited {
+  color: #3d3c3e;
+}
+#topnav > ul > li:hover:after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #29bbae;
+  margin-left: -10px;
+}
+#nav-left {
+  float: left;
+}
+#nav-right {
+  float: right;
+}
+
+#logo {
+  width: 252px;
+  height: 127px;
+  margin: 0px auto;
+  margin-top: -65px;
+  position: relative;
+  z-index: 100;
+}
+#logo span {
+  visibility: hidden;
+}
+
+.login-signup {
+  font-family: 'Arvo', serif;
+  font-weight: 400;
+  font-size: 16px;
   background-color: #FFFFFF;
-  width: 800px;
-  margin: 0 auto;
-  min-height: 100%;
-}*/
+  text-align: center;
+  width: 150px;
+  height: 32px;
+  padding-top: 5px;
+  margin-left: 35px;
+  margin-top: 25px;
+}
+
+.login-signup a {
+  text-decoration: none;
+  color: #3d3c3e;
+}
+.login-signup a:active {
+  color: #29bbae;
+}
+.login-signup a:visited {
+  color: #3d3c3e;
+}
+.login-signup a:hover {
+  color: #29bbae;
+}
+.login-signup > .divider {
+  color: #29bbae;
+}
+
+
+
+#container {
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  background-color: #FFFFFF;
+  width: 850px;
+  margin: 20px auto 0px auto;
+}
 
 h1 {
   color: blue;
+}
+
+.alert-info {
+  background: yellow;
 }

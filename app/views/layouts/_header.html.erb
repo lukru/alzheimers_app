@@ -1,7 +1,17 @@
-<p>
-<%= link_to 'all tips', tips_path(:all => true) %> |
-<strong><%= link_to 'forgetmeknot', root_path %></strong> |
-<%= link_to 'about', '/about' %> |
-<%= link_to 'contact', '/contact' %> |
-</p>
-<hr>
+<div id="logo">
+  <%= link_to root_path do %>
+    <span>Forget Me Knot</span><%= image_tag "forgetmeknot-logo.png" %>
+  <% end %>
+</div>
+
+<div id="topnav">
+  <ul id="nav-left">
+    <li><%= link_to 'community', users_path(:all => true) %></li>
+    <li><%= link_to 'tips', tips_path(:all => true) %></li>
+  </ul>
+
+  <ul id="nav-right">
+    <li><%= link_to 'about', '/about' %></li>
+    <li><%= link_to 'contact', '/contact' %></li>
+  </ul>
+</div>
