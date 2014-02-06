@@ -44,6 +44,7 @@ header {
   width: 850px;
   margin: 0px auto;
   position: relative;
+  margin-top: -20px;
 }
 #topnav:after,
 #topnav ul:after {
@@ -130,24 +131,28 @@ header {
   margin-top: 25px;
 }
 
-.login-signup a {
+
+.login-signup a,
+.current-loggedin a {
   text-decoration: none;
   color: #3d3c3e;
 }
-.login-signup a:active {
+.login-signup a:active,
+.current-loggedin a:active {
   color: #29bbae;
 }
-.login-signup a:visited {
+.login-signup a:visited,
+.current-loggedin a:visited {
   color: #3d3c3e;
 }
-.login-signup a:hover {
+.login-signup a:hover,
+.current-loggedin a:hover {
   color: #29bbae;
 }
-.login-signup > .divider {
+.login-signup > .divider,
+.current-loggedin > .divider {
   color: #29bbae;
 }
-
-
 
 #container {
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
@@ -156,10 +161,20 @@ header {
   margin: 20px auto 0px auto;
 }
 
-h1 {
-  color: blue;
+.alert-danger {
+  background: #d6d6d6;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: 1px dashed #29bbae;
+  color: #3d3c3e;
 }
 
-.alert-info {
-  background: yellow;
+.alert-success {
+  background: #d6d6d6;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: 1px dashed #ee3b4c;
+  color: #3d3c3e; 
 }
