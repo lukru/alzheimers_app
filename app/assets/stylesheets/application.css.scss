@@ -15,19 +15,31 @@
 
 @import 'bootstrap';
 
+* {
+  margin: 0;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 body {
   background-image: image-url("graphy.png");
   background-repeat: repeat;
   margin: -25px 0px 0px 0px;
-  padding: 0;
+}
+
+img {
+  border: 0;
 }
 
 header {
   font-family: 'Arvo', serif;
   padding: 0;
   margin: 0;
-  width: 100%;
-  margin-top: 45px;
+  width: 850px;
+  margin: 50px auto 0px auto;
 }
 
 #topnav ul,
@@ -125,9 +137,10 @@ header {
   background-color: #FFFFFF;
   text-align: center;
   height: 32px;
-  padding-top: 5px;
-  margin-left: 35px;
+  padding: 5px 10px;
   margin-top: 25px;
+  position: relative;
+  float: left;
 
   a {
     text-decoration: none;
@@ -142,14 +155,6 @@ header {
   a:hover {
   color: #29bbae;
   }
-
-}
-.login-signup {
-  width: 150px;
-}
-.logged-in {
-  min-width: 150px;
-  max-width: 300px;
 }
 
 .login-signup > .divider,
@@ -158,10 +163,70 @@ header {
 }
 
 #container {
-  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-  background-color: #FFFFFF;
+  height: auto !important;
+  min-height: 100%;
+  margin: 20px auto -55px auto;
   width: 850px;
-  margin: 20px auto 0px auto;
+  background-color: #FFFFFF;
+  position: relative;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+}
+#container:before {
+  box-shadow: -15px 0 15px -15px inset;
+  -moz-box-shadow: -15px 0 15px -15px inset;
+  -webkit-box-shadow: -15px 0 15px -15px inset;
+  content: " ";
+  height: 100%;
+  left: -15px;
+  position: absolute;
+  top: 0;
+  width: 15px;
+}
+#container:after {
+  box-shadow: 15px 0 15px -15px inset;
+  -moz-box-shadow: 15px 0 15px -15px inset;
+  -webkit-box-shadow: 15px 0 15px -15px inset;
+  content: " ";
+  height: 100%;
+  right: -15px;
+  position: absolute;
+  top: 0;
+  width: 15px;
+}
+
+.signin {
+  width: 450px;
+  padding-top: 25px;
+  margin: 0px auto;
+}
+.signin h2 {
+  font-family: 'Arvo', serif;
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+  color: #29bbae;
+}
+.signin > .control-label {
+  text-align: right;
+}
+
+footer, .push {
+  height: 55px;
+  clear: both;
+}
+footer {
+  position: relative;
+  width: 850px;
+  margin: 0px auto;
+  background-color: #ccc;
+  font-size: 14px;
+  color: #3d3c3e;
+  text-align: center;
+  display: block;
+}
+footer p {
+  width: 500px;
+  margin: 0px auto;
 }
 
 .alert-danger {

@@ -17,7 +17,7 @@
       <tr>
         <td><%= link_to user.name, user %></td>
         <td><%= user.location %></td>
-        <td><%= user.user_type %></td>
+        <td><%= user.user_bio %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) if user == current_user %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } if user == current_user %></td>

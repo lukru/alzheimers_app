@@ -11,38 +11,45 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<header>
+  <header>
     <% if user_signed_in? %>
-    <div class="logged-in">
-      Hello, <%= link_to current_user do %>
-        <strong><%= current_user.name %></strong>.
-      <% end %>&nbsp;&nbsp;<span class="divider">|</span>
-      &nbsp;&nbsp;<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-    </div>
+        <div class="logged-in">
+          Hello, <%= link_to current_user do %>
+            <strong><%= current_user.name %></strong>.
+          <% end %>&nbsp;&nbsp;<span class="divider">|</span>
+          &nbsp;&nbsp;<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        </div>
 
-  <% else %>
+    <% else %>
 
-  <div class="login-signup">
-    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>&nbsp;&nbsp;<span class="divider">|</span>
-    &nbsp;&nbsp;<%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-  </div>
+      <div class="login-signup">
+        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>&nbsp;&nbsp;<span class="divider">|</span>
+        &nbsp;&nbsp;<%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+      </div>
 
-  <% end %>
+    <% end %>
 
-  <%= render 'layouts/header' %>
+    <%= render 'layouts/header' %>
 
-</header>
+  </header>
 
-<div id="container">
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
-<%= yield %>
+  <div id="container">
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+
+  <%= yield %>
+
+  <!-- Pushes footer to the bottom of the page -->
+  <!-- <div class="push"></div> -->
 </div>
+
+<!-- <footer>
+  <p>footer text goes here. blah la la.</p>
+</footer> -->
 
 </body>
 </html>
