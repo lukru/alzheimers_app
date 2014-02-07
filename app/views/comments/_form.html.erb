@@ -10,18 +10,26 @@
   </div>
 <% end %>
 
-<div class="field">
-  <%= f.label :author_name %><br>
-  <%= f.text_field :author_name %>
-</div>
-<div class="field">
-  <%= f.label :comment_text %><br>
-  <%= f.text_area :comment_text %>
-</div>
-<div class="field">
-  <%= f.hidden_field :user_id %><br>
-</div>
+  <div class='form-group'>
+  <%= f.label :author_name, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :author_name, class: "form-control", placeholder: "Enter name" %>
+    </div>
+  </div>
+<br><br><br>
+  <div class='form-group'>
+  <%= f.label :comment_text, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_area :comment_text, class: "form-control", placeholder: "Enter comment here" %>
+    </div>
+  </div>
+<br><br><br>
+  <div class="field">
+    <%= f.hidden_field :user_id %><br>
+  </div>
 
-<div class="actions">
-  <%= f.submit "Create", class: "btn btn-primary" %>
-</div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit "Create comment", class: "btn btn-default" %>
+    </div>
+  </div>

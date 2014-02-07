@@ -1,36 +1,26 @@
+<div id="showtip">
+  <h1><%= "#{@tip.user.name}" %>'s Advice</h1>
 
-<h3><%= "#{@tip.user.name}" %>'s Advice</h3>
+  <p>
+  <span class="userinfo">Name:</span>&nbsp;
+    <%= @tip.name %>
+  </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @tip.name %>
-</p>
+  <p>
+  <span class="userinfo">Activity Type:</span>&nbsp;
+    <%= @tip.activity_type %>
+  </p>
 
-<p>
-  <strong>Activity type:</strong>
-  <%= @tip.activity_type %>
-</p>
+  <p>
+  <span class="userinfo">Description:</span>&nbsp;
+    <%= @tip.description %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @tip.description %>
-</p>
-
-<%= link_to 'Edit', edit_tip_path(@tip) %><br>
+<%= link_to 'Edit', edit_tip_path(@tip) if @tip.user == current_user %><br>
 <%= link_to 'Destroy', @tip, method: :delete, data: { confirm: 'Are you sure?' } if @tip.user == current_user %>
 <%= link_to 'Back', tips_path %>
 
-<hr>
-
-<%= render @comments if @comments.present? %>
-<h2>add comment:</h2>
-<%= form_for([@tip, @comment]) do |f| %>
-  <%= render 'comments/form', f: f %>
-<% end %>
-
-<hr>
-
-<p style="color:blue;"><%= @tip.votes.count %> favorites</p>
+<p><%= @tip.votes.count %> favorites</p>
 
 <% if user_signed_in? && @user != current_user  %>
 
@@ -44,3 +34,13 @@
 
   <% end %>  
 <% end %>
+</div>
+<hr>
+<%= render @comments if @comments.present? %>
+<div class="commentform">
+  <h2>Add Comment:</h2>
+  <%= form_for(([@tip, @comment]), class: 'form-horizontal', role: 'form') do |f| %>
+    <%= render 'comments/form', f: f %>
+  <% end %>
+</div>
+<hr>

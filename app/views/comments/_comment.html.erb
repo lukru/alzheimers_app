@@ -1,6 +1,20 @@
-<p><strong><%= comment.author_name %></strong></p>
-<p><%= comment.comment_text %></p>
+<div id = "comment">
 
-<% if comment.user == current_user %>
+  <p>
+  <%= comment.comment_text %></span>
+  </p>
+
+  <p>
+  <span class="userinfo"><%= comment.author_name %></span>
+  </p>
+
+  <p>
+  <%= comment.created_at %>
+  </p>
+
+  <% if comment.user == current_user %>
   <p><%= link_to 'Edit', edit_comment_path(comment) %> <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?'} %></p>
 <% end %>
+
+</div>
+

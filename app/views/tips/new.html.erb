@@ -1,7 +1,11 @@
-<h1>New tip</h1>
+<div class="tipform">
+
+<h2>New tip</h2>
 
 <%= form_for([@user, @tip]) do |f| %>
   <%= render 'form', f: f %>
 <% end %>
 
 <%= link_to 'Back', tips_path %>
+
+</div>

@@ -1,8 +1,12 @@
-<h1>Editing tip</h1>
+<div class="tipform">
 
-<%= form_for(@tip) do |f| %>
+<h2>Editing tip</h2>
+
+<%= form_for((@tip), class: 'form-horizontal', role: 'form')  do |f| %>
   <%= render 'form', f: f %>
 <% end %>
 
 <%= link_to 'Show', @tip %> |
 <%= link_to 'Back', tips_path %>
+
+</div>
