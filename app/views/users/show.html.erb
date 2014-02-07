@@ -1,23 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div id="userprofile">
+  <h1>About <%= @user.name %></h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+  <p>
+  <span class="userinfo">Name:</span>&nbsp;
+    <%= @user.name %>
+  </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @user.location %>
-</p>
+  <p>
+  <span class="userinfo">Location:</span>&nbsp;
+    <%= @user.location %>
+  </p>
 
-<p>
-  <strong>Type:</strong>
-  <%= @user.user_bio %>
-</p>
+  <p class="userbio">
+  <span class="userinfo">Bio:</span><br>
+    <%= @user.user_bio %>
+  </p>
 
-<p>
-  <%= link_to "See #{@user.name}'s tips", user_tips_path(@user) %>
-</p>
+  <hr>
+  
+  <span class="usertips"><%= link_to "Read #{@user.name}'s tips", user_tips_path(@user) %></span>&nbsp;|&nbsp;
+  <span class="usertips"><%= link_to 'Go Back', users_path %></span><br>
+  <span class="usertips"><%= link_to "Edit Profile", edit_user_path(@user) %></span>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+</div>

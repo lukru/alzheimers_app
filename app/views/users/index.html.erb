@@ -1,4 +1,4 @@
-<div id ="listing">
+<div id ="community">
 
 <h1>Our Community</h1>
 
@@ -14,7 +14,7 @@
     <tbody>
       <% @users.each do |user| %>
         <tr class="trows">
-          <td><%= link_to user.name.capitalize, user %></td>
+          <td><%= link_to user.name, user %></td>
           <td><%= user.location %></td>
           <td><%= user.email %></td>
         </tr>
@@ -22,7 +22,9 @@
     </tbody>
   </table>
 
-</div>
+  <div class="sort_links">
+    <%= link_to 'sort by name', users_path(sort: :name) %>&nbsp;<span class="divider">|</span>&nbsp;
+    <%= link_to 'sort by location', users_path(sort: :location) %>
+  </div>
 
-<%= link_to 'sort by name' %>
-<%= link_to 'sort by location' %>
+</div>

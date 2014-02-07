@@ -157,15 +157,15 @@ header {
   }
 }
 
-.login-signup > .divider,
-.current-loggedin > .divider {
+.divider,
+{
   color: #29bbae;
 }
 
 #container {
   height: auto !important;
   min-height: 100%;
-  margin: 20px auto -55px auto;
+  margin: 20px auto -80px auto;
   width: 850px;
   background-color: #FFFFFF;
   position: relative;
@@ -210,13 +210,46 @@ header {
   text-align: right;
 }
 
-#listing {
+.signup {
+  width: 600px;
+  padding-top: 25px;
+  margin: 0px auto;
+}
+.signup h2 {
+  font-family: 'Arvo', serif;
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+  color: #29bbae;
+}
+.signup > .control-label {
+  text-align: right;
+}
+
+.password {
+  width: 550px;
+  padding-top: 25px;
+  margin: 0px auto;
+}
+.password h2 {
+  font-family: 'Arvo', serif;
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+  color: #29bbae;
+}
+.password > .control-label {
+  text-align: right;
+}
+
+
+#community {
   margin: 0 auto;
   padding: 20px;
   font-family: 'Source Sans Pro';
   width: 825px;
 }
-#listing > h1 {
+#community  h1 {
   font-family: 'Arvo', serif;
   margin: 0;
   padding: 0 0 25px 0;
@@ -228,37 +261,112 @@ header {
   font-size: 18px;
 }
 .trows {
-  color: #22bdaf;
+  color: #3d3c3e;
   font-size: 16px;
 }
 .trows a {
   text-decoration: none;
-  color: #22bdaf;
+  color: #3d3c3e;
   font-weight: 600;
 }
+.trows a:visited {
+  color: #3d3c3e;
+}
+.trows a:hover {
+  color: #22bdaf;
+}
 .trows a:active {
+  color: #22bdaf;
+}
+
+.sort_links a {
+  font-family: 'Arvo', serif;
+  color: #3d3c3e;
+  text-decoration: none;
+}
+.sort_links a:visited {
+  color: #3d3c3e;
+}
+.sort_links a:hover {
+  color: #22bdaf;
+}
+.sort_links a:active {
+  color: #22bdaf;
+}
+
+
+#userprofile {
+  width: 600px;
+  margin: 0px auto;
+  padding: 20px;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+#userprofile h1 {
+  font-family: 'Arvo', serif;
+  margin: 0;
+  padding: 0 0 25px 0;
+  text-align: center;
   color: #f13a4b;
 }
 
+.usertips a {
+  font-family: 'Arvo', serif;
+  color: #f13a4b;
+  text-decoration: none;
+  font-size: 14px;
+}
+.usertips a:visited {
+  color: #f13a4b;
+}
+.usertips a:hover {
+  color: #3d3c3e;
+}
+.usertips a:active {
+  color: #3d3c3e;
+}
 
+.userinfo {
+  color: #f13a4b;
+  font-weight: 700;
+}
+.userbio {
+  text-align: justify;
+}
 
-footer, .push {
-  height: 55px;
+#myfooter, .push {
+  height: 80px;
   clear: both;
 }
-footer {
-  position: relative;
+#myfooter {
+  font-family: 'Arvo', serif;
+  font-size: 12px;
   width: 850px;
   margin: 0px auto;
-  background-color: #ccc;
+  background-color: #d7d7d7;
   font-size: 14px;
   color: #3d3c3e;
-  text-align: center;
+  position: relative;
   display: block;
+  padding: 10px 0 10px 0;
 }
-footer p {
+#myfooter p {
   width: 500px;
   margin: 0px auto;
+  text-align: center;
+}
+#myfooter a {
+  color: #22bdaf;
+  text-decoration: none;
+}
+#myfooter a:visited {
+  color: #22bdaf;
+}
+#myfooter a:hover {
+  color: #3d3c3e;
+}
+#myfooter a:active {
+  color: #22bdaf;
 }
 
 .alert-danger {

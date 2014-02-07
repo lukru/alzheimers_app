@@ -1,32 +1,27 @@
-<h1>Listing tips</h1>
+<div id="userprofile">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Activity type</th>
-      <th>Description</th>
-      <th>Votes</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+  <h1>Tips for Caregivers</h1>
 
-  <tbody>
-    <% @tips.each do |tip| %>
-      <tr>
-        <td><%= link_to tip.name, tip %></td>
-        <td><%= tip.activity_type %></td>
-        <td><%= tip.description %></td>
-        <td><%= tip.votes.count %></td>
-        <td><%= link_to 'Show', tip %></td>
-        <td><%= link_to 'Edit', edit_tip_path(tip) if tip.user == current_user %></td>
-        <td><%= link_to 'Destroy', tip, method: :delete, data: { confirm: 'Are you sure?' } if tip.user == current_user %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <% @tips.each do |tip| %>
 
-<br>
+    <p>
+    <span class="userinfo">Title:</span>&nbsp;
+      <%= link_to tip.name, tip %>
+    </p>
 
-<%= link_to 'New Tip', new_user_tip_path(@user) if @user %>
+    <p>
+    <span class="userinfo">Activity Type:</span>&nbsp;
+      <%= tip.activity_type %>
+    </p>
+
+    <p class="userbio">
+    <span class="userinfo">Description:</span><br>
+      <%= tip.description %>
+    </p>
+
+    <hr>
+
+  <% end %>
+
+  <span class="usertips"><%= link_to 'Write New Tip', new_user_tip_path(@user) if current_user  %></span>
+</div>

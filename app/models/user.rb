@@ -8,5 +8,7 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
 
+  default_scope { order("lower(name)") }
+
   validates :name, :presence => true
 end
