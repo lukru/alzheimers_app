@@ -194,7 +194,7 @@ header {
   width: 15px;
 }
 
-#welcomepage {
+#welcomepage, #aboutpage {
   width: 650px;
   margin: 0px auto;
   text-align: center;
@@ -205,11 +205,16 @@ header {
   font-weight: 700;
   color: #22bdaf;
 }
-#welcomepage p {
+#welcomepage p, #aboutpage p {
   font-size: 16px;
   text-align: center;
   width: 550px;
   margin: 0px auto;
+}
+#aboutpage h1 {
+  font-family: 'Arvo', serif;
+  font-weight: 700;
+  color: #f13a4b;
 }
 
 .signin {
